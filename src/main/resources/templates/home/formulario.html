@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg{
+            background-image: url("https://burst.shopifycdn.com/photos/wrtiting-tools.jpg?width=1200&format=pjpg&exif=1&iptc=1");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body class="bg">
+
+    <div class="container mb-5 col-6 position-absolute top-50 start-50 translate-middle" >
+        <div class="shadow-lg card mt-3 border-info" style="background-color:rgba(200, 200, 250, 0.3);">
+            <div class="card-header border-info text-center fw-bold text-light badge bg-primary fs-3">Imposto de Renda</div>
+            <form th:object="${requisicaoFormulario}" class="card-body" th:action="@{/home/calcular}" method="POST">
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text btn-primary">$</span>
+                    <input th:field="*{salario}" th:errorclass="is-invalid" class="form-control" placeholder="Sálario"/>
+                    <span class="input-group-text btn-primary">.00</span>
+                    <div class="invalid-feedback" th:errors="*{salario}">
+                        Erros no valor salario
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="text-primary fs-4 fw-bold">Número de Dependentes</label>
+                    <input th:field="*{numDependentes}" th:errorclass="is-invalid" class="form-control" placeholder="Número de Dependentes"/>
+                    <div class="invalid-feedback" th:errors="*{numDependentes}">
+                        Erros no número de dependentes
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
