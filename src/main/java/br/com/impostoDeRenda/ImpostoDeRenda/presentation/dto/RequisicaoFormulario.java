@@ -1,17 +1,14 @@
-package br.com.impostoDeRenda.ImpostoDeRenda.dto;
+package br.com.impostoDeRenda.ImpostoDeRenda.presentation.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 public class RequisicaoFormulario {
 
-    @NotBlank
     @Pattern(regexp = "^\\d+(\\.\\d{2})?$", message = "Formato inválido")
     private String salario;
-    @NotBlank
     @Pattern(regexp = "^\\d+(\\.\\d{0})?$", message = "Formato inválido")
     private String numDependentes;
-
     public String getSalario() {
         return salario;
     }
@@ -27,4 +24,5 @@ public class RequisicaoFormulario {
     public void setNumDependentes(String numDependentes) {
         this.numDependentes = numDependentes;
     }
+
 }

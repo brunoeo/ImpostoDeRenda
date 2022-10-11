@@ -23,16 +23,15 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text btn-primary">$</span>
                     <input th:field="*{salario}" th:errorclass="is-invalid" class="form-control" placeholder="Sálario"/>
-                    <span class="input-group-text btn-primary">.00</span>
-                    <div class="invalid-feedback" th:errors="*{salario}">
+                    <div class="invalid-feedback fw-bold fs-6" th:errors="*{salario}">
                         Erros no valor salario
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="text-primary fs-4 fw-bold">Número de Dependentes</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text btn-primary"></span>
                     <input th:field="*{numDependentes}" th:errorclass="is-invalid" class="form-control" placeholder="Número de Dependentes"/>
-                    <div class="invalid-feedback" th:errors="*{numDependentes}">
+                    <div class="invalid-feedback fw-bold fs-6" th:errors="*{numDependentes}">
                         Erros no número de dependentes
                     </div>
                 </div>
