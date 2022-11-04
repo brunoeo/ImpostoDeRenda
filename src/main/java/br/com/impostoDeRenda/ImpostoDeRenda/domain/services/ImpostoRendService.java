@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 
 @Service
 public class ImpostoRendService {
-    public String calculaImpostoRenda(RequisicaoFormulario requisicaoFormulario, Model model) {
+    public ImpostoDTO calculaImpostoRenda(RequisicaoFormulario requisicaoFormulario) {
 
         ImpostoDTO impostoDTO = new ImpostoDTO();
 
@@ -44,8 +44,6 @@ public class ImpostoRendService {
             impostoDTO.setValorAnual(impostoDTO.getValorMensal() * 12);
         }
 
-        model.addAttribute("impostoRenda", impostoDTO);
-
-        return "home/impostoCalculado";
+        return impostoDTO;
     }
 }

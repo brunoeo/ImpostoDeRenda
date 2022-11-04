@@ -1,5 +1,6 @@
 package br.com.impostoDeRenda.ImpostoDeRenda.presentation.controllers;
 
+import br.com.impostoDeRenda.ImpostoDeRenda.presentation.dto.ImpostoDTO;
 import br.com.impostoDeRenda.ImpostoDeRenda.presentation.dto.RequisicaoFormulario;
 import br.com.impostoDeRenda.ImpostoDeRenda.domain.services.ImpostoRendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 public class HomeController {
 
     @Autowired
-    ImpostoRendService impostoRendService;
+    private ImpostoRendService impostoRendService;
 
     @GetMapping("formulario")
     public String formulario(RequisicaoFormulario requisicaoFormulario){
@@ -30,7 +31,11 @@ public class HomeController {
             return "home/formulario";
         }
 
-        return impostoRendService.calculaImpostoRenda(requisicaoFormulario, model);
+        ImpostoDTO impostoDTO = impostoRendService.calculaImpostoRenda(requisicaoFormulario);
+
+        model.addAttribute("impostoRenda", impostoDTO);
+
+        return "home/impostoCalculado";
     }
 
 }

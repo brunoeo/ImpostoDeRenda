@@ -5,9 +5,9 @@ import javax.validation.constraints.Pattern;
 
 public class RequisicaoFormulario {
 
-    @Pattern(regexp = "^\\d+(\\.\\d{2})?$", message = "Formato inválido")
+    @Pattern(regexp = Regexp.salario, message = "Formato inválido")
     private String salario;
-    @Pattern(regexp = "^\\d+(\\.\\d{0})?$", message = "Formato inválido")
+    @Pattern(regexp = Regexp.numDependentes, message = "Formato inválido")
     private String numDependentes;
     public String getSalario() {
         return salario;
